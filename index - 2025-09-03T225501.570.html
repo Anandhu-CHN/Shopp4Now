@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopp4Now</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body class="bg-white pb-9 pt-20 select-none">
+
+<div class="bg-gradient-to-r from-emerald-200 to-green-100 fixed w-full top-0 left-0 z-[900]"> 
+
+<h1 class="text-blue-700 text-2xl mx-2 font-semibold">Shopp<font color="red">4</font>Now</h1> 
+<div> 
+<input type="search" placeholder="search here ..." class="p-4 rounded-full text-center m-2 relative w-[265px]">
+<button class="py-3 px-4 bg-cyan-600 rounded-full absolute top-11 left-3 active:border "> 
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+ 
+<div class="bg-white px-4 py-3 inline-block rounded-md   active:border ">
+<i class="fa-duotone fa-solid fa-qrcode fa-fade scanBtn"></i>
+</div>
+
+</div>
+ 
+
+</div>
+
+
+<div id="scanDiv" class="bg-white active:border-2 border text-center p-4 w-[90%] h-[50%] hidden my-8 mx-2 z-[100]"> 
+
+
+<div class="flex flex-end"><div>
+<button class="closeScanDiv">✖️</button></div>
+</div>
+
+Scan to Proceed!
+
+
+<button class="bg-cyan-600 p-4 rounded-full active:border border-cyan-500 border-2 text-white openCam">Open Camera</button>
+
+
+<div class="p-12 bg-cyan-200 mt-4 hidden accessDiv"> 
+
+Access Denied! 
+
+</div>
+
+</div>
+
+
+
+<div class="bg-white grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 px-3 pt-3 pb-20 pt-24 gap-6 products-container relative"  id="home"> 
+  
+
+<div class="mt-12 z-60 fixed left-1/2 top-1/2 bg-white p-4 rounded-md border mb-3 active:bg-gray-100 ratingDiv hidden"> 
+
+<i class="fa-solid fa-star stars" style="color: #FFD43B;"></i>
+<i class="fa-solid fa-star stars" style="color: #FFD43B;"></i>
+<i class="fa-solid fa-star stars" style="color: #FFD43B;"></i>
+<i class="fa-solid fa-star stars" style="color: #FFD43B;"></i>
+<i class="fa-solid fa-star stars" style="color: #FFD43B;"></i>
+
+
+</div>
+
+
+
+<div class="bg-green-400 p-1 m-2 rounded-md text-center w-1/2 hidden addedDivs fixed z-30 sm:left-[50%] sm:top-[50%] top-1/2 left-center text-white sm:w-20">Added!</div>
+
+</div>
+
+
+<div class=" flex flex-col justify-center items-center hidden" id="you"> 
+
+<button class="p-4 rounded-md border bg-emerald-200 my-12 active:bg-emerald-500 font-bold" id="accountBtn" onclick="
+document.getElementById('accountCreateDiv').style.display='block';
+document.getElementById('signInDiv').style.display='none';
+
+"> Create an Account </button>
+
+
+<div id="accountCreateDiv"> 
+<form class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm mb-4">
+    <h2 class="text-2xl font-semibold text-center mb-6">Create an Account</h2>
+    
+    <div class="mb-4">
+        <label for="fullName" class="block text-gray-700 font-bold mb-2">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="John Doe" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+    </div>
+    
+    <div class="mb-4">
+        <label for="email" class="block text-gray-700 font-bold mb-2">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+    </div>
+    
+    <div class="mb-6">
+        <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+        <input type="password" id="password" name="password" placeholder="********" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+    </div>
+    
+    <button type="submit" class="w-full bg-emerald-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-600 transition duration-300">
+        Create 
+    </button>
+</form>
+</div>
+
+
+<button class="p-4 rounded-md border bg-amber-200 mt-3 mb-20 active:bg-amber-500 font-bold" id="signInBtn" onclick="
+document.getElementById('signInDiv').style.display='block'; 
+document.getElementById('accountCreateDiv').style.display='none';
+"> Sign in</button>
+
+
+<div id="signInDiv" class="hidden"> 
+<form class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+    <h2 class="text-2xl font-semibold text-center mb-6">Sign In</h2>
+    
+    <div class="mb-4">
+        <label for="signInEmail" class="block text-gray-700 font-bold mb-2">Email Address</label>
+        <input type="email" id="signInEmail" name="signInEmail" placeholder="you@example.com" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" required>
+    </div>
+    
+    <div class="mb-6">
+        <label for="signInPassword" class="block text-gray-700 font-bold mb-2">Password</label>
+        <input type="password" id="signInPassword" name="signInPassword" placeholder="********" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" required>
+    </div>
+    
+    <button type="submit" class="w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 transition duration-300 mb-20">
+        Sign In
+    </button>
+</form>
+
+</div>
+
+</div>
+
+<div class="bg-white w-full  flex justify-evenly items-center mb-20 hidden" id="more"> 
+
+<div class="pt-16 flex flex-col   items-center"> 
+ 
+
+<h1 class="text-emerald-600 text-2xl font-semibold block my-6"> Instant Recharge & Payments</h1>
+
+
+ 
+<a href="#recharge" class="px-6  text-sm font-medium text-gray-700 hover:bg-gray-100">
+<button class="bg-red-500 text-white py-4 px-6 block my-6 rounded-xl active:bg-red-400 font-bold" id="rechargeBtn" onclick="
+
+document.getElementById('tvRechargeDiv').style.display='block'; 
+
+"> TV Recharges </button>
+ </a>
+
+
+
+
+<div class="bg-gray-100 p-6 rounded-lg shadow-lg max-w-sm mx-auto my-10 font-sans hidden" id="tvRechargeDiv">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-5 text-center">Instant Recharge</h2>
+    <form id="rechargeForm" class="space-y-4">
+        <div>
+            <label for="recharge-type" class="block text-sm font-medium text-gray-700">Select Service Provider</label>
+            <select id="recharge-type" name="recharge-type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                <option value="">-- Choose an option --</option>
+                <option value="dishtv">DishTV</option>
+                <option value="airtel">Airtel DTH</option>
+                <option value="sundirect">Sun Direct</option>
+                <option value="tatasky">Tata Play</option>
+                <option value="d2h">D2h</option>
+                <option value="jio">JioFiber</option>
+            </select>
+        </div>
+        <div>
+            <label for="recharge-id" class="block text-sm font-medium text-gray-700">Subscriber ID / Mobile No.</label>
+            <input type="text" id="recharge-id" name="recharge-id" placeholder="Enter ID or Mobile No." class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        </div>
+        <div>
+            <label for="recharge-amount" class="block text-sm font-medium text-gray-700">Amount</label>
+            <input type="number" id="recharge-amount" name="recharge-amount" placeholder="Enter Amount" min="10" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        </div>
+        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            Recharge Now
+        </button>
+    </form>
+</div>
+
+
+
+
+
+    <div class="container mx-auto p-4 md:p-8 hidden" id="payment-sections">
+        
+        <div class="flex justify-center mb-6">
+            
+            
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto relative">
+            
+
+            <div >
+                <div class="flex border-b border-gray-200 mb-4">
+                    <button id="tab-electricity" class="flex-1 py-2 text-center text-sm font-medium text-blue-600 focus:outline-none" onclick="
+document.getElementById('section-electricity').style.display='block';
+document.getElementById('section-qrcode').style.display='none';
+
+document.getElementById('section-electricity').style.borderColor='solid #0051ff';
+
+document.getElementById('tab-electricity').classList.add('text-blue-600','border-b-2','border-blue-600');
+document.getElementById('tab-electricity').style.color='violet';
+document.getElementById('tab-qrcode').style.color='gray';
+">Electricity</button>
+                    <button id="tab-qrcode" class="flex-1 py-2 text-center text-sm font-medium text-blue-600 border-b-2 border-blue-600 focus:outline-none" onclick="
+document.getElementById('section-electricity').style.display='none';
+document.getElementById('tab-qrcode').style.color='violet'; 
+document.getElementById('section-qrcode').style.display='block'; 
+
+
+document.getElementById('tab-electricity').style.color='gray';
+document.getElementById('section-electricity').style.borderColor='solid #0051ff';
+">Scan QR</button>
+                </div>
+    
+                <div id="section-electricity" class="space-y-4 hidden">
+                    <h3 class="text-lg font-medium text-gray-700">Electricity Bill Payment</h3>
+                    <form id="electricityForm" class="space-y-4">
+                        <div> 
+                            <label for="provider" class="block text-sm font-medium text-gray-700">Select Service Provider</label>
+                            <select id="provider" name="provider" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                <option value="">-- Choose an option --</option>
+                                <option value="kseb">KSEB</option>
+                                <option value="tneb">TNEB</option>
+                                <option value="bescom">BESCOM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="consumer-id" class="block text-sm font-medium text-gray-700">Consumer Number</label>
+                            <input type="text" id="consumer-id" name="consumer-id" placeholder="Enter Consumer Number" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="bill-amount" class="block text-sm font-medium text-gray-700">Amount (Optional)</label>
+                            <input type="number" id="bill-amount" name="bill-amount" placeholder="Enter Amount" min="1" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Proceed to Pay
+                        </button>
+                    </form>
+                </div>
+    
+                <div id="section-qrcode" class="space-y-4">
+                    <h3 class="text-lg font-medium text-gray-700 text-center">Scan to Pay</h3>
+                    <div id="qr-reader" class="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-300 text-gray-400">
+                        QR Code Scanner UI
+                    </div>
+                    <div id="qr-reader-results" class="text-center mt-4 text-sm text-gray-600"></div>
+                    <button id="start-scan-btn" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                        Start QR Scanner
+                    </button>
+                </div>
+            </div>
+
+            <div id="payment-success" class="absolute inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center p-4 rounded-lg hidden">
+                <div class="bg-green-100 p-8 rounded-full">
+                    <i class="fas fa-check-circle text-6xl text-green-500"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mt-4">Payment Successful!</h3>
+                <p class="text-sm text-gray-600 mt-2 text-center">Your bill has been paid successfully.</p>
+                <button id="close-success-btn" class="mt-6 py-2 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+<a href="#payments" class="px-6 py-3 font-medium">
+<button class="bg-amber-400 text-white p-4 block my-6 rounded-xl active:bg-amber-500 font-bold" id="paymentBtn"> Other Payments </button> 
+</a>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+<div class="bg-white h-full w-full flex justify-center items-center hidden flex flex-col justify-evenly items-center pt-12 pb-24 " id="cart"> 
+
+<div class=" mt-4 mb-20 w-[300px] h-[500px] bg-emerald-300 flex justify-center items-center emptyCart"> 
+ 
+<a href="#home" onclick=" 
+document.getElementById('homeBtn').click();
+" id="linkHome">
+<div class="border rounded-md p-6 text-blue-900 font-mono emptyDiv" onclick="
+
+document.querySelector('.emptyCart').style.backgroundColor='white'; 
+document.querySelector('.emptyDiv').style.border.color='green';
+
+"> 
+Add to Your Cart....
+
+
+
+</div>
+
+</a>
+
+
+</div>
+
+<div class="cartDetails"> 
+</div>
+<div class="cartList"> 
+</div>
+
+</div>
+
+ 
+
+<div class="bottom-tab bg-white shadow-md px-3 py-5 fixed bottom-1 left-0 mx-1 mt-3 mb-1 w-[96%] border flex justify-evenly rounded-md" id="controls"> 
+ 
+<button id="homeBtn" onclick="toggleTabs ('home'); 
+
+const home= document.getElementById('home');
+        if (home.style.display === 'grid') {
+            home.style.display = 'block'; 
+        } else {
+            home.style.display = 'grid';
+        }"
+
+ class="active:border p-3 rounded-md">
+<i class="fa-solid fa-house text-2xl"></i>
+</button>
+ 
+<button onclick="toggleTabs ('more')" class="active:border px-4 py-3 rounded-md">
+<i class="fa-solid fa-caret-down text-2xl"></i>
+</button>
+ 
+<button onclick="toggleTabs ('you')" class="active:border px-4 py-3 rounded-md">
+<i class="fa-solid fa-user text-2xl"></i> 
+</button> 
+
+<button onclick="toggleTabs ('cart')" class="active:border px-4 py-3 rounded-md relative">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<div class="font-semibold text-red-600 absolute top-1 right-1" id="cartUpdater"> 
+0
+</div>
+</button>
+</div>
+
+
+
+<div class="bg-emerald-900 px-4 pt-4 pb-20 font-mono"> 
+<footer class="text-center text-white"> 
+
+All images used for this project are created & <a href="http://www.freepik.com" class="text-cyan-500">Designed by macrovector / Freepik</a>
+
+</footer>
+</div>
+
+
+
+<script> 
+
+
+
+function cartDetailsUpdate(priceGst,priceTotal){
+
+document.querySelector('.cartDetails').innerHTML=`<div> 
+<div class=" top-1 left-2  border  text-center text-2xl font-semibold"> 
+Cart Details
+</div>
+
+<div> 
+GST: ${priceGst}
+</div>
+<div> 
+Total Amount: ${priceTotal.toFixed(2)}
+</div>
+<button class="bg-red-600 active:bg-red-400 my-4 mx-4 p-4 rounded-3xl text-white font-semibold" onclick="cart=[];
+cartUpdater.innerHTML=0;
+
+
+
+
+document.querySelector('.cartList').innerHTML='Your Cart is Now Empty!';;
+
+priceGst=0;
+priceTotal=0;
+
+cartDetailsUpdate(priceGst,priceTotal);
+
+">Empty Cart </button>
+
+
+</div>`;
+
+}
+
+
+
+
+
+const products=[ 
+{
+productName:'Football',
+imageName:'',
+Id:'e1',
+pricePaise:89950 
+},
+{
+productName:'Samsung Galaxy Smart Phone',
+imageName:'',
+Id:'e2',
+pricePaise:2000000 
+},
+{
+productName:'Ponds Branded face cream',
+imageName:'',
+Id:'e3',
+pricePaise:9990 
+},
+{
+productName:'HP Laptop',
+imageName:'',
+Id:'e4',
+pricePaise:4679900 
+},
+{
+productName :
+'Lenovo Laptop'
+,
+imageName:'',
+Id:'e5',
+pricePaise:4679900 
+},
+{
+productName:'Enchanting Perfume',
+imageName:'',
+Id:'e6',
+pricePaise:6600 
+},
+{
+productName:'Boots and Football Combo',
+imageName:'',
+Id:'e7',
+pricePaise:365900 
+},
+{
+productName:'Rubik‘s Cube',
+imageName:'',
+Id:'e8',
+pricePaise:15700
+},
+{
+productName:'Biryani Mix',
+imageName:'',
+Id:'e9',
+pricePaise:25700
+},
+{
+productName:'Vegetables kit',
+imageName:'',
+Id:'e10',
+pricePaise:14700
+},
+{
+productName:'Make Up Kit',
+imageName:'',
+Id:'e11',
+pricePaise:49750
+},
+{
+productName:'Gaming Accessories',
+imageName:'',
+Id:'e12',
+pricePaise:570000
+}
+];
+ 
+const moreproducts= [{
+image:'',
+title:'null'
+},
+{
+image:'',
+title:'null'
+}
+];
+
+const productsPlace= document.querySelector('.products-container');
+
+products.forEach((value) => { 
+ 
+
+productsPlace.innerHTML += `<div class="mt-2"> 
+<div class="flex justify-center items-center mt-2"> 
+ 
+<div> 
+
+
+<img src="${value.imageName}" class="w-[92%] h-[200px] sm:h-[500px] sm:w-[500px] Images" > 
+
+</div>
+ 
+</div>
+<div class="text-center mt-2"> 
+${value.productName}
+</div>
+
+<div class="text-center mt-2"> 
+₹ ${(value.pricePaise /100).toFixed(2)}
+</div>
+
+
+<div class="flex justify-center items-center mt-2"> 
+    
+    
+<button class="bg-amber-300 p-3 rounded-lg active:bg-amber-200 js-add-to-cart" data-product-id="${value.Id}" 
+data-product-name="${value.productName}"
+data-product-image="${value.imageName}"
+data-product-price="${value.pricePaise/100}"
+> 
+Add to Cart 
+</button>
+</div>
+
+</div>`; 
+});
+
+
+function toggleTabs(tabId) {
+    const tabs = ['home', 'you','cart','more']; // Define the IDs of your tabs
+    tabs.forEach(id => {
+        const tab = document.getElementById(id);
+        if (id === tabId) {
+            tab.style.display = 'flex'; // Use grid for the products
+        } else { 
+            tab.style.display = 'none';
+        }
+    });
+}
+ 
+
+
+function renderCartList(cartItem, updateDeliveryDate,itemGst) {
+
+    // Corrected date generation (should be done on each call for accurate dates)
+    const today = new Date();
+    const fifthDay = new Date(today);
+    fifthDay.setDate(today.getDate() + 5);
+    const sixthDay = new Date(today);
+    sixthDay.setDate(today.getDate() + 6);
+    const seventhDay = new Date(today);
+    
+seventhDay.setDate(today.getDate() + 7);
+
+let temporaryList;
+    // Get the element where the cart items will be added
+    const cartListElement = document.querySelector('.cartList');
+
+
+
+
+    // Add the new cart item to the HTML
+    cartListElement.innerHTML += `
+        <div class="flex-col justify-evenly items-evenly border shadow-md active:spin text-2xl py-5" id="item-${cartItem.gotId}" data-product-price="${cartItem.productPrice}" data-price-gst="${itemGst}">
+            <div class="block">
+                <img src="${cartItem.productImage}" class="w-[300px] h-[300px] mx-4 Images"/>
+                <div class="p-2bg-red-600 pl-12 font-semibold">${cartItem.productName}</div>
+                <div class="pl-12">₹${cartItem.productPrice}</div>
+                <div class="pl-12">Quantity: ${cartItem.productQuantity}</div>
+                <div class="text-cyan-400 pl-12 active:text-cyan-700 my-2" onclick="deleteItem('${cartItem.gotId},${updateDeliveryDate},{tempGst}')">
+                    Delete
+                </div>
+                <div class="ml-12 pt-5">
+                    Delivery Date:
+                    <input type="radio" class="block" id="date-${cartItem.gotId}-1" name="deliverydate-${updateDeliveryDate}">${fifthDay.toDateString()}<font color="red"> (free shipping)</font></input>
+                    <input type="radio" class="block" id="date-${cartItem.gotId}-2" name="deliverydate-${updateDeliveryDate}">${sixthDay.toDateString()}<font color="red">(shipping charge ₹ ${(cartItem.productPrice * 7 / 100).toFixed(2)}</font></input>
+                    <input type="radio" class="block" id="date-${cartItem.gotId}-3" name="deliverydate-${updateDeliveryDate}">${seventhDay.toDateString()}<font color="red">(shipping charge ${(cartItem.productPrice * 12 / 100).toFixed(2)}</font></input>
+                </div>
+            </div>
+        </div>
+    `;
+
+
+}
+
+
+ 
+    
+
+let cart=[];
+
+const cartButtons=document.querySelectorAll('.js-add-to-cart');
+let count=1;
+let updateDeliveryDate=1;
+let priceTotal=0;
+let priceGst=0;
+
+
+
+
+
+cartButtons.forEach((button) => {
+ 
+button.addEventListener('click', () => {
+document.getElementById('cart').style.display ='none';
+
+document.querySelector('.cartList').innerHTML='';
+
+document.querySelector('.addedDivs').style.display='block';
+
+const addDiv=setTimeout(() => {
+document.querySelector('.addedDivs').style.display='none';
+},2000);
+
+let gotId=button.dataset.productId;
+let productName=button.dataset.productName;
+let productPrice=button.dataset.productPrice;
+const productImage=button.dataset.productImage;
+document.getElementById('cartUpdater').innerHTML++;
+
+const addingList={
+productName:productName,
+productImage: productImage,
+productPrice: productPrice,
+gotId:gotId,
+productQuantity:1
+};
+ 
+const matchingItem=cart.find(item=>item.gotId ===addingList.gotId);
+
+if (matchingItem){
+matchingItem.productQuantity++;
+}
+
+else{
+cart.push(addingList);
+}
+
+document.querySelector('.emptyCart').style.display='none';
+
+const tempGst=Number(productPrice)*3/100; 
+
+cart.forEach((cartItem) => {
+
+renderCartList(cartItem,updateDeliveryDate,tempGst);
+
+
+updateDeliveryDate++;
+});
+ 
+
+priceGst+= Number(productPrice)*3/100;
+priceTotal += priceGst + Number(productPrice);
+
+
+ 
+
+
+document.querySelectorAll('.options').forEach((raiseCart) => {
+raiseCart.value =1;
+raiseCart.addEventListener('click', () => {
+ 
+raiseCart.value++;
+
+
+});
+
+
+});
+count =2;
+
+cartDetailsUpdate(priceGst,priceTotal);
+
+});
+
+});
+
+
+document.querySelector('.scanBtn').addEventListener('click', () => {
+document.getElementById('scanDiv').style.display ='block';
+
+});
+
+
+document.querySelector('.closeScanDiv').addEventListener('click', () => {
+document.getElementById('scanDiv').style.display ='none';
+
+ 
+
+});
+
+document.querySelectorAll('.Images').forEach((image) => {
+
+image .addEventListener('click', () => {
+document.querySelector('.ratingDiv').style.display='block';
+
+const ratingDiappear=setTimeout(() => {
+document.querySelector('.ratingDiv').style.display='none';
+
+}, 2500);
+
+});
+});
+
+document.querySelector('.ratingDiv').addEventListener('click', () => {
+
+
+document.querySelectorAll('.stars').forEach((star) => {style.backgrounColor ='red';
+});
+ 
+
+});
+
+
+document.querySelector('.openCam').addEventListener('click', () => {
+
+document.querySelector('.accessDiv').style.display='block';
+});
+
+document.querySelectorAll('.ratingDiv').forEach((delBtn) => {
+delBtn.addEventListener('click', () => {
+
+
+});
+
+});
+
+
+function deleteItem(productId,updateDeliveryDate,tempGst) {
+    
+
+
+cart = cart.filter(item => item.gotId !== productId);
+
+document.querySelector('.cartList').innerHTML='';
+
+cart.forEach((cartItem) => {renderCartList(cartItem,updateDeliveryDate,tempGst);
+});
+
+}
+
+document.getElementById('accountBtn').addEventListener('click', () => {
+document.getElementById('accountCreateDiv').style.display=''
+});
+
+document.getElementById('paymentBtn').addEventListener('click', () => {
+
+document.getElementById('payment-sections').style.display="block";
+});
+</script>
+
+</body>
+</html>
