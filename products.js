@@ -3,7 +3,7 @@
 
 
  const products = [
-  { productName: 'Exciting Games Collection', imageName: 'Images/ Games.jpg', Id: 'e1', pricePaise: 29900, productQuantity: 1 },
+  { productName: 'Exciting Games Collection', imageName: 'Images/ Games.jpg', Id: 'e1', pricePaise: 529900, productQuantity: 1 },
   { productName: 'Premium Ball and Boot Combo', imageName: 'Images/BallAndBoot.jpg', Id: 'e2', pricePaise: 114900, productQuantity: 1 },
   { productName: 'Durable Cricket Bat', imageName: 'Images/Bat.jpg', Id: 'e3', pricePaise: 69900, productQuantity: 1 },
   { productName: 'Delicious Chocolate Pack', imageName: 'Images/Chocolate.jpg', Id: 'e4', pricePaise: 4900, productQuantity: 1 },
