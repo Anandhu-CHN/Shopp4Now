@@ -25,7 +25,7 @@
   { productName: 'Ultra HD Smart TV', imageName: 'Images/Tv.jpg', Id: 'e20', pricePaise: 1499900, productQuantity: 1 },
   { productName: 'Fresh Organic Vegetables', imageName: 'Images/Vegetables.jpg', Id: 'e21', pricePaise: 3900, productQuantity: 1 },
   { productName: 'Luxury Wrist Watch', imageName: 'Images/Watch.jpg', Id: 'e22', pricePaise: 179900, productQuantity: 1 },
-  { productName: 'Attractive Painting Set', imageName: 'Images/Painting.jpg', Id: 'e23', pricePaise: 16900, productQuantity: 1 }
-  { productName: 'Smooth Fountain Pen ', imageName: 'Images/Pen.jpg', Id: 'e24', pricePaise: 64900, productQuantity: 1 }
+  { productName: 'Attractive Painting Set', imageName: 'Images/Painting.jpg', Id: 'e23', pricePaise: 16900, productQuantity: 1 },
+  { productName: 'Smooth Fountain Pen', imageName: 'Images/Pen.jpg', Id: 'e24', pricePaise: 64900, productQuantity: 1 }
 
  ];
